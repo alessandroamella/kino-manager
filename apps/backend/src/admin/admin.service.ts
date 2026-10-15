@@ -154,7 +154,7 @@ export class AdminService {
     this.logger.debug(
       'Excel file buffer generated successfully with Members and Tessere sheets',
     );
-    return excelBuffer as Buffer;
+    return Buffer.from(excelBuffer);
   }
 
   async getUsers(): Promise<MemberDataExtendedDto[]> {

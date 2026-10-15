@@ -9,8 +9,8 @@
 
 ## Installazione
 
-1. Clona la repository
-2. Esegui `pnpm install`
+1. Clona la repository (monorepo)
+2. Esegui `pnpm install` dalla root
 3. Crea un file `.env` nella root del progetto come da esempio in `.env.example`
 
 ## Variabili d'ambiente
@@ -35,10 +35,10 @@ VITE_CONTACT_EMAIL=Email di contatto inserita nel footer
 3. Apri il browser all'indirizzo `http://localhost:3000`
 
 ## Stampante
-[https://github.com/alessandroamella/kino-manager-printer](https://github.com/alessandroamella/kino-manager-printer)
+[hardware/printer](../../hardware/printer)
 
 ## Backend
-[https://github.com/alessandroamella/kino-manager-be](https://github.com/alessandroamella/kino-manager-be)
+[apps/backend](../backend)
 
 ## Note
 

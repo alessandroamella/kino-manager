@@ -232,7 +232,7 @@ export class PurchaseService
     this.logger.debug(
       'Excel file buffer generated successfully with Purchases and Items Sold sheets',
     );
-    return excelBuffer as Buffer;
+    return Buffer.from(excelBuffer);
   }
 
   async create(data: CreatePurchaseDto): Promise<GetPurchaseDto> {

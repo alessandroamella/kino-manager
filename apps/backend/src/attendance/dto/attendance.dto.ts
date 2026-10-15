@@ -1,8 +1,8 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { Attendance } from '@prisma/client';
+import { Attendance } from '../../generated/prisma/client';
 import { Type } from 'class-transformer';
 import { IsDate, IsInt, IsOptional } from 'class-validator';
-import { BaseDocumentDto } from 'prisma/dto/base-document.dto';
+import { BaseDocumentDto } from '../../prisma/dto/base-document.dto';
 
 export class AttendanceDto extends BaseDocumentDto implements Attendance {
   @ApiProperty()

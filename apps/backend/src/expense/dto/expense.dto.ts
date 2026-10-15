@@ -1,5 +1,5 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { Expense } from '@prisma/client';
+import { Expense } from '../../generated/prisma/client';
 import { Type } from 'class-transformer';
 import {
   IsBoolean,
@@ -10,7 +10,7 @@ import {
   IsString,
   Min,
 } from 'class-validator';
-import { BaseDocumentDto } from 'prisma/dto/base-document.dto';
+import { BaseDocumentDto } from '../../prisma/dto/base-document.dto';
 
 export class ExpenseDto extends BaseDocumentDto implements Expense {
   @ApiProperty({

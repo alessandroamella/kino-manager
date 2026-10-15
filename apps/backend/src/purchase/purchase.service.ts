@@ -5,13 +5,13 @@ import {
   WebSocketGateway,
   WebSocketServer,
 } from '@nestjs/websockets';
-import { PaymentMethod } from '@prisma/client';
+import { PaymentMethod } from '../generated/prisma/client';
 import { formatInTimeZone } from 'date-fns-tz';
 import { Workbook } from 'exceljs';
-import { ItemDto } from 'item/dto/item.dto';
+import { ItemDto } from '../item/dto/item.dto';
 import { cloneDeepWith, omit, pick, sumBy } from 'lodash';
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
-import { PrismaService } from 'prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { Server, Socket } from 'socket.io';
 import unidecode from 'unidecode';
 import { Logger } from 'winston';

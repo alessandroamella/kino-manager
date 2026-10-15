@@ -9,7 +9,7 @@ import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { formatInTimeZone } from 'date-fns-tz';
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
-import { PrismaService } from 'prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import QRCode, { QRCodeToBufferOptions } from 'qrcode';
 import { Logger } from 'winston';
 import { EventJwtDto } from './dto/event-jwt.dto';

@@ -6,8 +6,8 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import { AdminGuard } from 'auth/admin.guard';
-import { JwtAuthGuard } from 'auth/jwt-auth.guard';
+import { AdminGuard } from '../auth/admin.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CreateItemDto } from './dto/create-item.dto';
 import { GetItemDto } from './dto/get-item.dto';
 import { ItemService } from './item.service';

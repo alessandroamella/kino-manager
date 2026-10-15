@@ -12,12 +12,12 @@ import {
   Newsletter,
   NewsletterDelivery,
   SubscriptionStatus,
-} from '@prisma/client';
+} from '../generated/prisma/client';
 import { render } from 'ejs';
 import { Logger } from 'winston';
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
 import { addMinutes, subMinutes } from 'date-fns';
-import wait from 'wait';
+import { setTimeout as wait } from 'timers/promises';
 import { CACHE_MANAGER } from '@nestjs/cache-manager';
 import { Cache } from 'cache-manager';
 
@@ -63,7 +63,7 @@ export class NewsletterService {
     const now = new Date();
     let newslettersToSend: (Newsletter & {
       deliveries: NewsletterDelivery[];
-    })[] = null;
+    })[];
 
     try {
       newslettersToSend = await this.cacheManager.get(this.CACHE_KEY);

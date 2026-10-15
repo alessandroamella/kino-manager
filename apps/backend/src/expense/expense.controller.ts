@@ -21,8 +21,8 @@ import {
   ApiUnauthorizedResponse,
   ApiParam,
 } from '@nestjs/swagger';
-import { AdminGuard } from 'auth/admin.guard';
-import { JwtAuthGuard } from 'auth/jwt-auth.guard';
+import { AdminGuard } from '../auth/admin.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { ExpenseService } from './expense.service';
 import { ExpenseDto } from './dto/expense.dto';
 import { CreateExpenseDto } from './dto/create-expense.dto';

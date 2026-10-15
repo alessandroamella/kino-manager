@@ -5,11 +5,11 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { AdminGuard } from 'auth/admin.guard';
-import { JwtAuthGuard } from 'auth/jwt-auth.guard';
-import { GetOpeningDayWithAttendeesDto } from 'opening-day/dto/get-opening-day-with-attendees.dto';
-import { GetOpeningDayDto } from 'opening-day/dto/get-opening-day.dto';
-import { OpeningDayService } from 'opening-day/opening-day.service';
+import { AdminGuard } from '../../auth/admin.guard';
+import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
+import { GetOpeningDayWithAttendeesDto } from '../dto/get-opening-day-with-attendees.dto';
+import { GetOpeningDayDto } from '../dto/get-opening-day.dto';
+import { OpeningDayService } from '../opening-day.service';
 
 @ApiTags('opening-day')
 @Controller('opening-day')

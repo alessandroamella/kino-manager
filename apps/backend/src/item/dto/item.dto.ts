@@ -1,5 +1,5 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { Item } from '@prisma/client';
+import { Item } from '../../generated/prisma/client';
 import {
   IsInt,
   IsOptional,
@@ -7,7 +7,7 @@ import {
   IsNumber,
   IsBoolean,
 } from 'class-validator';
-import { BaseDocumentDto } from 'prisma/dto/base-document.dto';
+import { BaseDocumentDto } from '../../prisma/dto/base-document.dto';
 
 export class ItemDto extends BaseDocumentDto implements Item {
   @ApiProperty({ description: 'Name of the item' })

@@ -1,7 +1,7 @@
 import { ApiProperty, PickType } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { IsInt } from 'class-validator';
-import { MemberDataDto } from 'member/dto/member-data.dto';
+import { MemberDataDto } from '../../member/dto/member-data.dto';
 
 export class MembershipCardDto {
   @ApiProperty({

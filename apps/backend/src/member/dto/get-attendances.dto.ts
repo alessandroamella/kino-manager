@@ -1,6 +1,6 @@
 import { ApiProperty, PickType } from '@nestjs/swagger';
-import { AttendanceDto } from 'attendance/dto/attendance.dto';
-import { OpeningDayDto } from 'opening-day/dto/opening-day.dto';
+import { AttendanceDto } from '../../attendance/dto/attendance.dto';
+import { OpeningDayDto } from '../../opening-day/dto/opening-day.dto';
 
 class GetAttendanceOpeningDayDto extends PickType(OpeningDayDto, [
   'name',

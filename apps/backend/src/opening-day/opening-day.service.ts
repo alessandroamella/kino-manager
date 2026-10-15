@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { addMonths, subMonths } from 'date-fns';
-import { PrismaService } from 'prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { GetOpeningDayWithAttendeesDto } from './dto/get-opening-day-with-attendees.dto';
 import { GetOpeningDayDto } from './dto/get-opening-day.dto';
 

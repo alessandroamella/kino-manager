@@ -84,17 +84,10 @@ import { SharedModule } from './shared/shared.module';
     CacheModule.registerAsync({
       isGlobal: true,
       useFactory: async () => {
-        const store = new Keyv(
-          new KeyvRedis({
-            socket: {
-              host: 'localhost',
-              port: 6379,
-            },
-          }),
-        ) as any;
-
         return {
-          store,
+          stores: [
+            new Keyv({ store: new KeyvRedis('redis://localhost:6379') }),
+          ],
           ttl: 60 * 60 * 1000, // 1 hour
         };
       },

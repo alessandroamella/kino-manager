@@ -1,7 +1,7 @@
 import { ApiProperty, PickType } from '@nestjs/swagger';
-import { IsBase64Image } from 'auth/is-b64-image.validator';
+import { IsBase64Image } from '../is-b64-image.validator';
 import { IsNotEmpty, IsString } from 'class-validator';
-import { MemberDto } from 'member/dto/member.dto';
+import { MemberDto } from '../../member/dto/member.dto';
 
 export class SignupDto extends PickType(MemberDto, [
   'firstName',

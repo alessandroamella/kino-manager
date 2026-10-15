@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Gender } from '@prisma/client';
+import { Gender } from '../generated/prisma/client';
 
 @Injectable()
 export class SharedService {

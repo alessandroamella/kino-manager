@@ -1,5 +1,9 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { Gender, Member, SubscriptionStatus } from '@prisma/client';
+import {
+  Gender,
+  Member,
+  SubscriptionStatus,
+} from '../../generated/prisma/client';
 import { Transform, Type } from 'class-transformer';
 import {
   IsBoolean,
@@ -18,9 +22,9 @@ import {
   ValidateIf,
 } from 'class-validator';
 import parsePhoneNumber from 'libphonenumber-js';
-import { IsCodiceFiscale } from 'member/is-codice-fiscale.decorator';
-import { IsValidPhoneItaly } from 'member/is-valid-phone-italy.validator';
-import { BaseDocumentDto } from 'prisma/dto/base-document.dto';
+import { IsCodiceFiscale } from '../is-codice-fiscale.decorator';
+import { IsValidPhoneItaly } from '../is-valid-phone-italy.validator';
+import { BaseDocumentDto } from '../../prisma/dto/base-document.dto';
 
 export class MemberDto extends BaseDocumentDto implements Member {
   @ApiProperty()

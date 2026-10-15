@@ -6,9 +6,9 @@ import {
   ValidateNested,
   IsBoolean,
 } from 'class-validator';
-import { BaseDocumentDto } from 'prisma/dto/base-document.dto';
+import { BaseDocumentDto } from '../../prisma/dto/base-document.dto';
 import { ItemDto } from './item.dto';
-import { Category } from '@prisma/client';
+import { Category } from '../../generated/prisma/client';
 
 export class CategoryDto extends BaseDocumentDto implements Category {
   @ApiProperty({ description: 'Name of the category' })

@@ -10,9 +10,9 @@ import {
   Min,
   ValidateIf,
 } from 'class-validator';
-import { BaseDocumentDto } from 'prisma/dto/base-document.dto';
+import { BaseDocumentDto } from '../../prisma/dto/base-document.dto';
 import { PurchasedItemDto } from './purchased-item.dto';
-import { PaymentMethod, Purchase } from '@prisma/client';
+import { PaymentMethod, Purchase } from '../../generated/prisma/client';
 
 export class PurchaseDto extends BaseDocumentDto implements Purchase {
   @ApiProperty({

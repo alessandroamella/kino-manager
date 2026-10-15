@@ -8,7 +8,7 @@ import {
   Length,
   MaxLength,
 } from 'class-validator';
-import { MemberDto } from 'member/dto/member.dto';
+import { MemberDto } from '../../member/dto/member.dto';
 
 // we rewrite many props in order to make them mandatory
 // because they're optional in MemberDto but required for the PDF

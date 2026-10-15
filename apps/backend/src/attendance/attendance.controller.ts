@@ -17,9 +17,9 @@ import {
   ApiParam,
   ApiTags,
 } from '@nestjs/swagger';
-import { AdminGuard } from 'auth/admin.guard';
-import { JwtAuthGuard } from 'auth/jwt-auth.guard';
-import { Member } from 'member/member.decorator';
+import { AdminGuard } from '../auth/admin.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { Member } from '../member/member.decorator';
 import { AttendanceService } from './attendance.service';
 import { CheckInUrlDto } from './dto/check-in-url.dto';
 

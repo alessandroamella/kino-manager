@@ -1,12 +1,12 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
-import { PrismaService } from 'prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { Logger } from 'winston';
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
 import { CreateExpenseDto } from './dto/create-expense.dto';
 import { expenseSelect } from './expense.select';
 import { ExpenseDto } from './dto/expense.dto';
 import { SetExpenseRepaidDto } from './dto/set-expense-repaid.dto';
-import { R2Service } from 'r2/r2.service';
+import { R2Service } from '../r2/r2.service';
 import { omit, padStart } from 'lodash';
 import { ConfigService } from '@nestjs/config';
 import { formatDate } from 'date-fns';

@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
-import { PrismaService } from 'prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { Logger } from 'winston';
 import { CreateItemDto } from './dto/create-item.dto';
 import { GetItemDto } from './dto/get-item.dto';

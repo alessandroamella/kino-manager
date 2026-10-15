@@ -9,14 +9,22 @@
     "target": "ES2021",
     "sourceMap": true,
     "outDir": "./dist",
+    "rootDir": "./src",
     "esModuleInterop": true,
-    "baseUrl": "./src",
     "incremental": true,
     "skipLibCheck": true,
+    "strict": false,
+    "types": [
+      "node",
+      "jest"
+    ],
     "strictNullChecks": false,
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false
-  }
+  },
+  "include": [
+    "src"
+  ]
 }

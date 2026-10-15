@@ -17,10 +17,10 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import { AdminGuard } from 'auth/admin.guard';
-import { JwtAuthGuard } from 'auth/jwt-auth.guard';
+import { AdminGuard } from '../auth/admin.guard';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { Response } from 'express';
-import { MemberDataExtendedDto } from 'member/dto/member-data.dto';
+import { MemberDataExtendedDto } from '../member/dto/member-data.dto';
 import { AdminService } from './admin.service';
 import { MembershipCardDto } from './dto/MembershipCard.dto';
 import { AddMembershipCardDto } from './dto/add-membership-card.dto';

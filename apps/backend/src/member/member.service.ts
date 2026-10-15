@@ -5,10 +5,10 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { AuthService } from 'auth/auth.service';
+import { AuthService } from '../auth/auth.service';
 import { IncomingHttpHeaders } from 'http';
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
-import { PrismaService } from 'prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { Logger } from 'winston';
 import { GetAttendancesDto } from './dto/get-attendances.dto';
 import { MemberDataWithTokenDto } from './dto/member-data-with-token.dto';

@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { PurchasedItem } from '@prisma/client';
+import { PurchasedItem } from '../../generated/prisma/client';
 import { IsInt, Min } from 'class-validator';
 
 export class PurchasedItemDto implements PurchasedItem {

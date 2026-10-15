@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "build": "tsc -b && vite build",
-    "start": "NODE_ENV=production node -r dotenv/config server/index.js"
+    "start": "NODE_ENV=production node -r dotenv/config server/index.js",
+    "test": "node --test server/*.test.js"
   },
   "dependencies": {
     "@date-fns/utc": "^2.1.1",

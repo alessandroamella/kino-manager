@@ -1,8 +1,9 @@
 import { isIOS } from 'react-device-detect';
+import venue from './venue.json';
 
-export const address = 'Via Piave 3, 41018 San Cesario sul Panaro (MO)';
+export const address = venue.address;
 
-const mapsPlaceId = 'ChIJZ0GUuP7df0cRRk0kgyPU0Sw';
+const mapsPlaceId = venue.mapsPlaceId;
 const googleMapsDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
   'Kinó Café',
 )}&destination_place_id=${mapsPlaceId}`;

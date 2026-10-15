@@ -1,0 +1,16 @@
+# Kinó Café
+
+> Kinó Café is a members' recreational café and social space inside Kinó Campus (the former cinema) in San Cesario sul Panaro, Modena, Italy: bar, pizza and snacks, board games, PlayStation, foosball and ping pong on weekday evenings, DJ sets on weekends. The site is in Italian.
+
+Address: Via Piave 3, 41018 San Cesario sul Panaro (MO), Italy. Entry is for members (soci); membership sign-up happens on this site.
+
+## Pages
+
+- [Homepage](https://cafe.kinocampus.it/index.md): What Kinó Café is, activities, opening hours and upcoming opening dates
+- [Menu](https://cafe.kinocampus.it/menu.md): Current drinks and food with prices in euro
+- [Sign up](https://cafe.kinocampus.it/auth/signup): Become a member (HTML form)
+
+## Legal
+
+- [Terms of service](https://cafe.kinocampus.it/docs/tos.md): Membership terms
+- [Privacy policy](https://cafe.kinocampus.it/docs/privacy.md): How member data is handled

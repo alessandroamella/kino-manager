@@ -6,8 +6,13 @@ import helmet from 'helmet';
 import { join } from 'path';
 import permissionsPolicy from 'permissions-policy';
 import ViteExpress from 'vite-express';
+import { negotiate } from './accept.js';
+import { htmlPathFor, markdownPathFor, renderMarkdown } from './markdown.js';
 
 const app = express();
+
+// behind the nginx reverse proxy: lets req.protocol report https
+app.set('trust proxy', 1);
 ViteExpress.config({
   mode: 'production',
 });
@@ -84,6 +89,89 @@ app.use(
     },
   }),
 );
+
+// Markdown versions of public pages for LLMs and agents: explicit `.md` URLs
+// plus `Accept: text/markdown` negotiation on the HTML URLs
+const markdownHeaders = (res, htmlPath) => {
+  res.setHeader('Content-Type', 'text/markdown; charset=utf-8');
+  res.setHeader('Vary', 'Accept');
+  res.setHeader('Link', `<${htmlPath}>; rel="canonical"; type="text/html"`);
+};
+
+const sendMarkdown = async (res, mdPath) => {
+  try {
+    const markdown = await renderMarkdown(mdPath);
+    if (markdown === null) {
+      return res.status(404).type('text/plain').send('Not Found\n');
+    }
+    markdownHeaders(res, htmlPathFor(mdPath));
+    return res.send(markdown);
+  } catch (err) {
+    console.error(`Error rendering ${mdPath}:`, err);
+    markdownHeaders(res, htmlPathFor(mdPath));
+    return res
+      .status(503)
+      .send('# Temporarily unavailable\n\nPlease try again later.\n');
+  }
+};
+
+const escapeHtml = (value) =>
+  value.replace(
+    /[&<>"']/g,
+    (c) =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[
+        c
+      ],
+  );
+
+const markdownPointerHtml = (absoluteMdUrl) =>
+  `<div aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap">A Markdown version of this page is available at ${escapeHtml(absoluteMdUrl)}.</div>`;
+
+app.get('/llms-full.txt', (_req, res) => res.redirect(302, '/index.md'));
+
+app.use(async (req, res, next) => {
+  if (req.method !== 'GET' && req.method !== 'HEAD') return next();
+
+  if (req.path.endsWith('.md')) {
+    return sendMarkdown(res, req.path);
+  }
+
+  const mdPath = markdownPathFor(req.path);
+  if (!mdPath) return next();
+
+  res.setHeader('Vary', 'Accept');
+  res.setHeader('Link', `<${mdPath}>; rel="alternate"; type="text/markdown"`);
+
+  const preferred = negotiate(req.headers.accept);
+  if (preferred === null) {
+    return res
+      .status(406)
+      .type('text/plain')
+      .send(
+        'Not Acceptable: this page is available as text/html or text/markdown\n',
+      );
+  }
+  if (preferred === 'markdown') {
+    return sendMarkdown(res, mdPath);
+  }
+
+  // HTML: advertise the Markdown alternate inside the document too, for
+  // fetchers that parse the DOM but never run the SPA's JavaScript
+  let html;
+  try {
+    html = await readFile(join(process.cwd(), 'dist', 'index.html'), 'utf-8');
+  } catch {
+    return next(); // no build yet, the fallback below handles it
+  }
+  const absoluteMdUrl = `${req.protocol}://${req.get('host')}${mdPath}`;
+  html = html
+    .replace(
+      '</head>',
+      `  <link rel="alternate" type="text/markdown" href="${mdPath}" />\n  </head>`,
+    )
+    .replace('<body>', `<body>\n    ${markdownPointerHtml(absoluteMdUrl)}`);
+  return res.type('html').send(html);
+});
 
 // Serve public directory
 const publicDir = join(process.cwd(), 'public');

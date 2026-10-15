@@ -1,5 +1,9 @@
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Disallow: /admin
+Disallow: /cashier
+Disallow: /profile
 Disallow: /v1
 Allow: /
+
 Sitemap: https://cafe.kinocampus.it/sitemap.xml

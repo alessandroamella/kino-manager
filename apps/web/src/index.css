@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.md * {
+  margin: revert;
+  padding: revert;
+  border: revert;
+  font-size: revert;
+  font-weight: revert;
+  vertical-align: revert;
+  list-style: revert;
+  text-align: revert;
+  text-decoration: revert;
+  text-transform: revert;
+  text-indent: revert;
+  text-shadow: revert;
+}
+
+/* styles.css or in a <style> block in your component if you prefer */
+.countdown-segment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.8); /* Adjust background as needed */
+  border-radius: 0.5rem;
+  color: #333; /* Adjust text color as needed */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-width: 60px; /* Minimum width for each segment */
+}
+
+.countdown-value {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.countdown-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #777; /* Adjust label color */
+}
+
+html {
+  padding-right: 0 !important;
+  overflow: auto !important;
+}
+
+div.table div {
+  padding: 0 !important;
+}
+
+.kino-menu * {
+  @apply select-none;
+}
+
+/* Carousel styling */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  opacity: 1;
+}
+
+.swiper-pagination-bullet {
+  background: white !important;
+  opacity: 0.7 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: white !important;
+  opacity: 1 !important;
+}
+
+/* Image caption animation */
+.slide-caption {
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
+}
+
+.swiper-slide-active .slide-caption {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    transform: scale(0.7);
+  }
+}

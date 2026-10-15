@@ -6,6 +6,21 @@ TARGET="${1:-all}"
 BRANCH="master"
 cd "$(dirname "$0")"
 
+# Build and run on Node 24 even when the nvm default is older
+if [[ -s "$HOME/.nvm/nvm.sh" ]]; then
+  set +u # nvm.sh reads unset variables
+  source "$HOME/.nvm/nvm.sh"
+  nvm use 24 >/dev/null
+  set -u
+fi
+# pm2 may be installed under a different Node version: borrow it from there
+if ! command -v pm2 >/dev/null; then
+  PM2_BIN="$(ls -d "$HOME"/.nvm/versions/node/*/bin/pm2 2>/dev/null | tail -1)"
+  [[ -n "$PM2_BIN" ]] && export PATH="$PATH:$(dirname "$PM2_BIN")"
+fi
+command -v pm2 >/dev/null || { echo "pm2 not found" >&2; exit 1; }
+echo "Using Node $(node -v)"
+
 echo "Pulling latest changes from $BRANCH branch..."
 git pull origin "$BRANCH"
 

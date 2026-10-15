@@ -1,0 +1,5 @@
+socketio
+python-socketio
+python-escpos
+websocket-client
+pyusb

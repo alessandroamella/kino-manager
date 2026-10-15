@@ -63,7 +63,7 @@ const AttendedEventCard = ({
       transition={{ duration: 0.3 }}
     >
       <Card className="max-w-[300px] md:max-w-[400px] overflow-hidden">
-        <CardHeader className="flex flex-col gap-2 bg-gradient-to-r from-purple-600 to-blue-500 text-white p-4">
+        <CardHeader className="flex flex-col gap-2 bg-linear-to-r from-purple-600 to-blue-500 text-white p-4">
           <div className="flex justify-between items-center w-full">
             <h2 className="text-xl font-bold">{openingDay.name}</h2>
             <MdOutlineEventAvailable size={24} />
@@ -79,7 +79,7 @@ const AttendedEventCard = ({
               className="w-full h-full object-cover"
               radius="none"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+            <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/70 to-transparent p-3">
               <p className="text-white text-sm font-medium">
                 {t('attendedEvent.youWereThere')} 🎉
               </p>

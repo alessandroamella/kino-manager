@@ -16,7 +16,7 @@ const Footer = () => {
   const currentYear = getYear(new Date());
 
   return (
-    <footer className="dark:bg-gradient-to-tl w-full from-yellow-950/40 to-orange-950/40 py-8 md:py-12">
+    <footer className="dark:bg-linear-to-tl w-full from-yellow-950/40 to-orange-950/40 py-8 md:py-12">
       <div className="container mx-auto px-4">
         <div className="grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 space-y-3 px-4 text-center md:text-left">
           {/* Contact & Address */}

@@ -213,7 +213,7 @@ const Homepage = () => {
         </section>
 
         <div
-          className={`h-96 bg-gradient-to-br w-full from-purple-950/40 to-primary-600/20 flex items-center justify-center`}
+          className={`h-96 bg-linear-to-br w-full from-purple-950/40 to-primary-600/20 flex items-center justify-center`}
         >
           <div>
             <h2 className="text-2xl md:text-3xl font-semibold text-center text-gray-800 dark:text-white">

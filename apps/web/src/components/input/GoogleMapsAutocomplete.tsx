@@ -1,4 +1,4 @@
-import { Loader } from '@googlemaps/js-api-loader';
+import { importLibrary, setOptions } from '@googlemaps/js-api-loader';
 import {
   Autocomplete,
   AutocompleteItem,
@@ -37,21 +37,15 @@ const GoogleMapsAutocomplete = ({
   const placesServiceRef = useRef<google.maps.places.PlacesService | null>(
     null,
   );
-  const loaderRef = useRef<Loader | null>(null);
   const debounceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null); // For debouncing predictions
 
   const { i18n } = useTranslation();
 
   useEffect(() => {
     // Initialize Google Maps Places API loader
-    loaderRef.current = new Loader({
-      apiKey: mapsApiKey,
-      libraries: ['places'],
-      language: i18n.language,
-    });
+    setOptions({ key: mapsApiKey, language: i18n.language });
 
-    loaderRef.current
-      .importLibrary('places')
+    importLibrary('places')
       .then((google) => {
         if (google) {
           // Initialize Autocomplete and Places services
@@ -71,9 +65,6 @@ const GoogleMapsAutocomplete = ({
       // Cleanup on unmount
       if (debounceTimeoutRef.current) {
         clearTimeout(debounceTimeoutRef.current);
-      }
-      if (loaderRef.current) {
-        loaderRef.current.deleteScript();
       }
     };
 

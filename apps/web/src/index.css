@@ -1,6 +1,49 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@plugin './hero.ts';
+@source '../../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-kino-50: #fffbe6;
+  --color-kino-100: #fff7cc;
+  --color-kino-200: #fff3aa;
+  --color-kino-300: #ffee88;
+  --color-kino-400: #ffe666;
+  --color-kino-500: #f7d400;
+  --color-kino-600: #e6c300;
+  --color-kino-700: #d4b200;
+  --color-kino-800: #c2a100;
+  --color-kino-900: #b09000;
+  --color-kino-950: #8e7000;
+
+  --animate-border-loop: border-pulse 0.5s infinite ease-in-out;
+
+  @keyframes border-pulse {
+    0%,
+    100% {
+      background-color: var(--color-background);
+    }
+    50% {
+      background-color: red;
+    }
+  }
+}
+
+/* Tailwind v3 compatibility: v4 defaults borders to currentColor */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
 
 .md * {
   margin: revert;
@@ -17,7 +60,7 @@
   text-shadow: revert;
 }
 
-/* styles.css or in a <style> block in your component if you prefer */
+/* Countdown styling */
 .countdown-segment {
   display: flex;
   flex-direction: column;

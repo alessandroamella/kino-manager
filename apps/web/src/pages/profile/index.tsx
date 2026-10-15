@@ -280,7 +280,7 @@ const Profile = () => {
                           <div className="flex space-x-4 px-2">
                             {attendedEvents.map((event) => (
                               <div
-                                className="snap-start flex-shrink-0"
+                                className="snap-start shrink-0"
                                 key={new Date(event.checkInUTC).toUTCString()}
                               >
                                 <AttendedEventCard attendedEvent={event} />

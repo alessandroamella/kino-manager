@@ -61,7 +61,7 @@ const ImageCarousel = ({ className = '' }: ImageCarouselProps) => {
                 className="absolute inset-0 w-full h-full object-cover"
                 loading={index > 0 ? 'lazy' : 'eager'}
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 slide-caption">
+              <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/70 to-transparent p-4 slide-caption">
                 <h3 className="text-white text-lg font-medium drop-shadow-lg">
                   {t(image.alt)}
                 </h3>

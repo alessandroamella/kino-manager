@@ -491,7 +491,7 @@ const CashierRegister = () => {
                 ref={searchInputRef}
                 placeholder={t('cashier.searchItem')}
                 startContent={
-                  <BiSearch className="text-2xl text-default-400 pointer-events-none flex-shrink-0" />
+                  <BiSearch className="text-2xl text-default-400 pointer-events-none shrink-0" />
                 }
                 type="search"
                 value={searchQuery}

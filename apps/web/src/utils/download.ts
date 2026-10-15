@@ -51,6 +51,7 @@ const downloadStreamedFile = async ({
         (error as Error)?.message ||
         error
       }`,
+      { cause: error },
     );
   }
 };

@@ -19,7 +19,7 @@ import { formatInTimeZone } from 'date-fns-tz';
 import { motion } from 'framer-motion';
 import { useCallback } from 'react';
 import Countdown from 'react-countdown';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { BiMoviePlay } from 'react-icons/bi';
 import { FaCalendarAlt, FaClock } from 'react-icons/fa';
 import { FiArrowRight, FiMapPin } from 'react-icons/fi';
@@ -391,6 +391,33 @@ const Homepage = () => {
                   </div>
                 </div>
               </div>
+              <Card className="mt-12 max-w-3xl mx-auto p-3 border-2 border-primary">
+                <CardHeader>
+                  <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                    {t('home.closedTitle')}
+                  </h2>
+                </CardHeader>
+                <CardBody className="space-y-3 text-gray-700 dark:text-gray-300">
+                  <p>{t('home.closedText1')}</p>
+                  <p>{t('home.closedText2')}</p>
+                  <p>
+                    <Trans
+                      i18nKey="home.closedText3"
+                      components={{
+                        campusLink: (
+                          <a
+                            href="https://www.kinocampus.it/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-semibold underline text-kino-700 dark:text-kino-500"
+                          />
+                        ),
+                      }}
+                    />
+                  </p>
+                  <p className="italic">{t('home.closedSignature')}</p>
+                </CardBody>
+              </Card>
             </div>
             <Spacer y={4} />
           </div>

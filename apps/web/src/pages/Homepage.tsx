@@ -288,12 +288,12 @@ const Homepage = () => {
               <CardHeader className="flex items-center">
                 <BiMoviePlay className="mr-2 text-xl" />
                 {/* Icon for Blande Activities */}
-                <p className="text-lg font-medium">
+                <div className="text-lg font-medium">
                   {t('home.blandeActivitiesTitle')}
                   <Chip className="ml-2" color="primary">
                     {t('home.openingDay')}
                   </Chip>
-                </p>
+                </div>
               </CardHeader>
               <CardBody className="space-y-2">
                 <p>{t('home.blandeActivitiesText1')}</p>
@@ -313,13 +313,13 @@ const Homepage = () => {
               <CardHeader className="flex items-center">
                 <BiMoviePlay className="mr-2 text-xl" />
                 {/* Icon for Serie Activities */}
-                <p className="text-lg font-medium">
+                <div className="text-lg font-medium">
                   {t('home.serieActivitiesTitle')}
 
                   <Chip className="ml-2" color="default">
                     {t('home.dateToBeDefined')}
                   </Chip>
-                </p>
+                </div>
               </CardHeader>
               <CardBody className="space-y-2">
                 <p>{t('home.serieActivitiesText1')}</p>

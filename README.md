@@ -2,6 +2,11 @@
 
 Gestionale del Kinó Café: sito pubblico, area soci, cassa, stampa scontrini e display LCD.
 
+> [!NOTE]
+> Il Kinó Café ha chiuso (dicembre 2024 – giugno 2025). Il sito è ancora online su [cafe.kinocampus.it](https://cafe.kinocampus.it/).
+>
+> Kinó Café has closed (December 2024 – June 2025). The website is still live at [cafe.kinocampus.it](https://cafe.kinocampus.it/).
+
 | Cartella           | Cosa                                   | Stack                      |
 | ------------------ | -------------------------------------- | -------------------------- |
 | `apps/backend`     | API REST (`/v1`) + server socket.io     | NestJS, Prisma, Postgres   |
